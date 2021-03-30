@@ -23,9 +23,18 @@
 let click = document.getElementById('click');
 let coin = 0;
 let coin_per_click=1;
-//
+if (localStorage.getItem('coin') !== null) {
+	//Загрузка данных пользователя
+	//Счет
+	coin=localStorage.getItem('coin');
+	//Клик в секунду
+	coin_per_click=localStorage.getItem('coin_per_click');
+};
+document.getElementById('counter').innerHTML = coin;
 function refresh(){
 	document.getElementById('counter').innerHTML = coin;
+	localStorage.setItem('coin', coin);
+	localStorage.setItem('coin_per_click', coin_per_click);
 };
 //Клик
 click.onclick =function() {
