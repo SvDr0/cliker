@@ -66,9 +66,9 @@ click.onclick =function() {
 };
 	//покупка
 buy.onclick =function() {
-	if (coin>=coin_per_click*100){
+	if (Number(coin)>=Number(coin_per_click)*100){
 	coin=Number(coin)-Number(coin_per_click)*100;
-		coin_per_click=coin_per_click+1
+		coin_per_click=Number(coin_per_click)+1
 	refresh();
 	
 	}else{
