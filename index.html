@@ -30,13 +30,18 @@
     <div id="wrapper">
     <h1>Кликер</h1>
 	    <h3 id="counter">0</h3>
+	    <h3 id="counter_per_click">1</h3>
+	    <br><hr><br>
         <button id="click">Кликни меня сенпай!</button>
+	<br><hr><br>
+	    <button id="buy">Цена: <span id="buy_counter">100</span></button>
     </div>
 </body>
 <!-- Скрипт игры -->
 <script type="text/javascript"><!--
 //Кнопка
 let click = document.getElementById('click');
+let buy = document.getElementById('buy');
 let coin = 0;
 let coin_per_click=1;
 if (localStorage.getItem('coin') !== null) {
@@ -48,7 +53,9 @@ if (localStorage.getItem('coin') !== null) {
 };
 document.getElementById('counter').innerHTML = coin;
 function refresh(){
+	document.getElementById('buy_counter').innerHTML = coin_per_click*100;
 	document.getElementById('counter').innerHTML = coin;
+	document.getElementById('counter_per_click').innerHTML = coin_per_click;
 	localStorage.setItem('coin', coin);
 	localStorage.setItem('coin_per_click', coin_per_click);
 };
@@ -56,6 +63,17 @@ function refresh(){
 click.onclick =function() {
 	coin=Number(coin)+Number(coin_per_click);
 	refresh();
+};
+	//покупка
+buy.onclick =function() {
+	if (coin>=coin_per_click*100){
+	coin=Number(coin)-Number(coin_per_click)*100;
+		coin_per_click=coin_per_click+1
+	refresh();
+	
+	}else{
+		alert("Мало бабла");
+	}
 };
 -->
 </script>
