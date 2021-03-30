@@ -13,13 +13,24 @@
 <body>
     <div id="wrapper">
     <h1>Кликер</h1>
-
+        <button id="click">0</button>
     </div>
 </body>
 <!-- Скрипт игры -->
 <script type="text/javascript"><!--
-
-
+//Кнопка
+let click = document.getElementById('click');
+let coin = 0;
+let coin_per_click=1;
+//
+function refresh(){
+	document.getElementById('click').innerHTML = coin;
+};
+//Клик
+click.onclick =function() {
+	coin=Number(coin)+Number(coin_per_click);
+	refresh();
+};
 -->
 </script>
 </html>
