@@ -13,7 +13,8 @@
 <body>
     <div id="wrapper">
     <h1>Кликер</h1>
-        <button id="click">0</button>
+	    <h3 id="counter">0</h3>
+        <button id="click">Кликни меня сенпай!</button>
     </div>
 </body>
 <!-- Скрипт игры -->
@@ -24,7 +25,7 @@ let coin = 0;
 let coin_per_click=1;
 //
 function refresh(){
-	document.getElementById('click').innerHTML = coin;
+	document.getElementById('counter').innerHTML = coin;
 };
 //Клик
 click.onclick =function() {
